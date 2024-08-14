@@ -20,11 +20,11 @@ export function countSmilyFace(texts: string[]): number {
   for (const faceString of texts) {
     if (faceString.length > 3) continue;
     const [eye, noseOrMouth, mouth] = faceString.split("");
-    if (!validEyes.some((e) => e == eye)) continue;
+    if (!validEyes.some((e) => e === eye)) continue;
 
-    if (!validNoses.some((n) => n == noseOrMouth)) {
+    if (!validNoses.some((n) => n === noseOrMouth)) {
       if (
-        validSmiling.some((m) => m == noseOrMouth) &&
+        validSmiling.some((m) => m === noseOrMouth) &&
         faceString.length === 2
       ) {
         countSmile++;
@@ -32,7 +32,7 @@ export function countSmilyFace(texts: string[]): number {
       }
       continue;
     }
-    if (!validSmiling.some((m) => m == mouth)) continue;
+    if (!validSmiling.some((m) => m === mouth)) continue;
     countSmile++;
   }
 
